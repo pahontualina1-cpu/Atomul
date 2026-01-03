@@ -1,0 +1,1989 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chimie Anorganică - Clasa a 7-a</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f0f7ff;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1a73e8, #0d47a1);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            border-radius: 0 0 15px 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .nav-bar {
+            background-color: white;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+        
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #1a73e8;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .nav-links a:hover {
+            background-color: #e8f0fe;
+            border-color: #1a73e8;
+        }
+        
+        .nav-links a.active {
+            background-color: #1a73e8;
+            color: white;
+        }
+        
+        .content-section {
+            display: none;
+            background-color: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .content-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        h2 {
+            color: #0d47a1;
+            border-bottom: 3px solid #e8f0fe;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        h3 {
+            color: #1a73e8;
+            margin: 20px 0 15px;
+            font-size: 1.4rem;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+        
+        .definition-box {
+            background-color: #e8f0fe;
+            border-left: 5px solid #1a73e8;
+            padding: 20px;
+            border-radius: 0 10px 10px 0;
+            margin: 20px 0;
+        }
+        
+        .interactive-exercise {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 25px 0;
+            border: 2px dashed #1a73e8;
+        }
+        
+        .exercise-title {
+            display: flex;
+            align-items: center;
+            color: #0d47a1;
+            margin-bottom: 15px;
+        }
+        
+        .exercise-title i {
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+        
+        .question {
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .option {
+            padding: 12px 15px;
+            background-color: white;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .option:hover {
+            background-color: #f0f7ff;
+        }
+        
+        .option.correct {
+            background-color: #d4edda;
+            border-color: #28a745;
+            color: #155724;
+        }
+        
+        .option.incorrect {
+            background-color: #f8d7da;
+            border-color: #dc3545;
+            color: #721c24;
+        }
+        
+        .feedback {
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            display: none;
+        }
+        
+        .feedback.correct {
+            background-color: #d4edda;
+            border-left: 5px solid #28a745;
+            color: #155724;
+            display: block;
+        }
+        
+        .feedback.incorrect {
+            background-color: #f8d7da;
+            border-left: 5px solid #dc3545;
+            color: #721c24;
+            display: block;
+        }
+        
+        .button {
+            background-color: #1a73e8;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        
+        .button:hover {
+            background-color: #0d47a1;
+        }
+        
+        .periodic-table {
+            display: grid;
+            grid-template-columns: repeat(18, 1fr);
+            gap: 5px;
+            margin: 25px 0;
+        }
+        
+        .element {
+            background-color: #f0f7ff;
+            border-radius: 5px;
+            padding: 8px 5px;
+            text-align: center;
+            font-size: 0.8rem;
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
+        
+        .element:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .element-symbol {
+            font-weight: bold;
+            font-size: 1rem;
+        }
+        
+        .element-number {
+            font-size: 0.7rem;
+            color: #666;
+        }
+        
+        .element.alkali-metal { background-color: #ffb3ba; }
+        .element.alkaline-earth { background-color: #ffdfba; }
+        .element.transition-metal { background-color: #ffffba; }
+        .element.basic-metal { background-color: #baffc9; }
+        .element.semi-metal { background-color: #bae1ff; }
+        .element.non-metal { background-color: #e0bbe4; }
+        .element.halogen { background-color: #f8b88b; }
+        .element.noble-gas { background-color: #ffb3ff; }
+        
+        .atom-model {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 25px 0;
+        }
+        
+        .nucleus {
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle at 30% 30%, #ff6b6b, #c23636);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 0 15px rgba(194, 54, 54, 0.5);
+        }
+        
+        .electron-shell {
+            position: absolute;
+            border: 2px dashed #1a73e8;
+            border-radius: 50%;
+        }
+        
+        .electron {
+            width: 20px;
+            height: 20px;
+            background-color: #1a73e8;
+            border-radius: 50%;
+            position: absolute;
+            box-shadow: 0 0 8px rgba(26, 115, 232, 0.7);
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .progress-bar {
+            height: 10px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background-color: #4caf50;
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+        
+        .score-display {
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #0d47a1;
+            margin: 15px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .periodic-table {
+                grid-template-columns: repeat(9, 1fr);
+            }
+            
+            .element {
+                padding: 5px 3px;
+                font-size: 0.7rem;
+            }
+            
+            .element-symbol {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><i class="fas fa-atom"></i> Chimie Anorganică - Clasa a 7-a</h1>
+            <p class="subtitle">Noțiuni fundamentale, exerciții interactive și evaluare</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav class="nav-bar">
+            <div class="nav-links">
+                <a href="#" class="nav-link active" data-target="atom">Atomul</a>
+                <a href="#" class="nav-link" data-target="element">Element chimic</a>
+                <a href="#" class="nav-link" data-target="structure">Structura atomului</a>
+                <a href="#" class="nav-link" data-target="isotopes">Izotopi</a>
+                <a href="#" class="nav-link" data-target="mass">Masă atomică. Mol</a>
+                <a href="#" class="nav-link" data-target="periodic">Tabelul periodic</a>
+                <a href="#" class="nav-link" data-target="relationship">Relația structură-poziție</a>
+                <a href="#" class="nav-link" data-target="review">Recapitulare</a>
+                <a href="#" class="nav-link" data-target="evaluation">Evaluare</a>
+                <a href="#" class="nav-link" data-target="remedial">Activități remediale</a>
+            </div>
+        </nav>
+        
+        <main>
+                       <!-- Secțiunea Atomul -->
+            <section id="atom" class="content-section active">
+                <h2><i class="fas fa-atom"></i> Definiția atomului</h2>
+                <div class="definition-box">
+                    <p><strong>Atomul</strong> este cea mai mică particulă dintr-un element chimic care păstrează proprietățile chimice ale elementului respectiv.</p>
+                </div>
+                
+                <p>Atomii sunt particulele fundamentale care alcătuiesc toată materia din Univers. Ei sunt atât de mici încât nu pot fi văzuți nici cu cele mai puternice microscopie optice.</p>
+                
+                <h3>Caracteristicile atomului</h3>
+                <ul>
+                    <li>Este divizibil și format din particule elementare (protoni, neutroni, electroni)</li>
+                    <li>Este neutru din punct de vedere electric (numărul de protoni = numărul de electroni)</li>
+                    <li>Are dimensiuni extrem de mici (rază de ordinul 10<sup>-10</sup> m)</li>
+                    <li>Majoritatea masei atomului este concentrată în nucleu</li>
+                </ul>
+                
+                <div class="interactive-exercise">
+                    <div class="exercise-title">
+                        <i class="fas fa-question-circle"></i>
+                        <h3>Exercițiu interactiv: Atomul</h3>
+                    </div>
+                    <p class="question">1. Care dintre următoarele afirmații despre atom este corectă?</p>
+                    <div class="options">
+                        <div class="option" data-correct="false">Atomul este cea mai mică particulă de materie care nu mai poate fi divizată</div>
+                        <div class="option" data-correct="true">Atomul este cea mai mică particulă dintr-un element care păstrează proprietățile chimice ale elementului</div>
+                        <div class="option" data-correct="false">Atomul are dimensiuni macroscopice și poate fi observat cu ochiul liber</div>
+                        <div class="option" data-correct="false">Atomii au încărcătură electrică pozitivă datorită prezenței electronilor</div>
+                    </div>
+                    
+                    <p class="question" style="margin-top: 20px;">2. Selectați afirmația corectă referitoare la numărul atomic:</p>
+                    <div class="options">
+                        <div class="option" data-correct="false">Reprezintă numărul neutronilor</div>
+                        <div class="option" data-correct="false">Reprezintă numărul nucleonilor</div>
+                        <div class="option" data-correct="true">Reprezintă numărul protonilor</div>
+                        <div class="option" data-correct="false">Se notează cu A</div>
+                    </div>
+                    
+                    <div class="feedback"></div>
+                    <button class="button check-answer">Verifică răspunsurile</button>
+                    <button class="button show-explanation" style="background-color: #6c757d; margin-left: 10px;">Explicație pentru ambele întrebări</button>
+                </div>
+            </section>
+
+            
+            <!-- Secțiunea Element chimic -->
+            <section id="element" class="content-section">
+                <h2><i class="fas fa-flask"></i> Element chimic. Simbol chimic</h2>
+                
+                <div class="definition-box">
+                    <p><strong>Elementul chimic</strong> este o substanță simplă care nu poate fi descompusă în substanțe mai simple prin metode chimice obișnuite.</p>
+                </div>
+                
+                <p>Fiecare element chimic este caracterizat de:</p>
+                <ul>
+                    <li><strong>Număr atomic (Z)</strong> - numărul de protoni din nucleul atomului</li>
+                    <li><strong>Simbol chimic</strong> - reprezentarea abreviată a elementului (ex: H pentru hidrogen, O pentru oxigen, Fe pentru fier)</li>
+                    <li><strong>Masă atomică relativă (A<sub>r</sub>)</strong> - masa medie a atomilor elementului comparativ cu masa atomului de carbon-12</li>
+                </ul>
+                
+                <h3>Simbolul chimic</h3>
+                <p>Simbolurile chimice sunt formate din una sau două litere. Prima literă este întotdeauna majusculă, iar a doua (dacă există) este minusculă.</p>
+                
+                <div class="interactive-exercise">
+                    <div class="exercise-title">
+                        <i class="fas fa-tasks"></i>
+                        <h3>Exercițiu: Asociază elementul cu simbolul corect</h3>
+                    </div>
+                    <p class="question">2. Trage fiecare element în caseta cu simbolul chimic corespunzător:</p>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; margin: 20px 0;">
+                        <div style="border: 2px solid #1a73e8; border-radius: 8px; padding: 15px; text-align: center; background-color: white;">
+                            <p><strong>Hidrogen</strong></p>
+                            <div class="drop-zone" data-element="H" style="min-height: 40px; border: 2px dashed #ccc; margin-top: 10px; border-radius: 5px; padding: 5px;"></div>
+                        </div>
+                        <div style="border: 2px solid #1a73e8; border-radius: 8px; padding: 15px; text-align: center; background-color: white;">
+                            <p><strong>Oxigen</strong></p>
+                            <div class="drop-zone" data-element="O" style="min-height: 40px; border: 2px dashed #ccc; margin-top: 10px; border-radius: 5px; padding: 5px;"></div>
+                        </div>
+                        <div style="border: 2px solid #1a73e8; border-radius: 8px; padding: 15px; text-align: center; background-color: white;">
+                            <p><strong>Carbon</strong></p>
+                            <div class="drop-zone" data-element="C" style="min-height: 40px; border: 2px dashed #ccc; margin-top: 10px; border-radius: 5px; padding: 5px;"></div>
+                        </div>
+                        <div style="border: 2px solid #1a73e8; border-radius: 8px; padding: 15px; text-align: center; background-color: white;">
+                            <p><strong>Aur</strong></p>
+                            <div class="drop-zone" data-element="Au" style="min-height: 40px; border: 2px dashed #ccc; margin-top: 10px; border-radius: 5px; padding: 5px;"></div>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; justify-content: center; gap: 15px; margin: 20px 0; flex-wrap: wrap;">
+                        <div class="draggable" draggable="true" data-symbol="H" style="padding: 10px 20px; background-color: #e8f0fe; border-radius: 5px; cursor: move; border: 2px solid #1a73e8;">H</div>
+                        <div class="draggable" draggable="true" data-symbol="O" style="padding: 10px 20px; background-color: #e8f0fe; border-radius: 5px; cursor: move; border: 2px solid #1a73e8;">O</div>
+                        <div class="draggable" draggable="true" data-symbol="C" style="padding: 10px 20px; background-color: #e8f0fe; border-radius: 5px; cursor: move; border: 2px solid #1a73e8;">C</div>
+                        <div class="draggable" draggable="true" data-symbol="Au" style="padding: 10px 20px; background-color: #e8f0fe; border-radius: 5px; cursor: move; border: 2px solid #1a73e8;">Au</div>
+                    </div>
+                    
+                    <div class="feedback" id="drag-feedback"></div>
+                    <button class="button" id="check-drag">Verifică asocierile</button>
+                    <button class="button" id="reset-drag" style="background-color: #6c757d; margin-left: 10px;">Resetează</button>
+                </div>
+            </section>
+            
+            <!-- Secțiunea Structura atomului -->
+            <section id="structure" class="content-section">
+                <h2><i class="fas fa-sitemap"></i> Nucleul și învelișul de electroni</h2>
+                
+                <p>Atomul este format din două părți principale:</p>
+                
+                <h3>1. Nucleul atomic</h3>
+                <ul>
+                    <li>Este partea centrală a atomului</li>
+                    <li>Conține <strong>protoni</strong> (încărcați pozitiv) și <strong>neutroni</strong> (neutri din punct de vedere electric)</li>
+                    <li>Are dimensiuni foarte mici (10<sup>-15</sup> m) dar concentrează peste 99,9% din masa atomului</li>
+                    <li>Încărcătura nucleară este dată de numărul de protoni (Z)</li>
+                </ul>
+                
+                <h3>2. Învelișul electronic</h3>
+                <ul>
+                    <li>Este situat în jurul nucleului</li>
+                    <li>Conține <strong>electronii</strong> (încărcați negativ)</li>
+                    <li>Electronii se deplasează pe straturi (nivele) energetice</li>
+                    <li>Numărul de electroni este egal cu numărul de protoni (atomul este neutru)</li>
+                </ul>
+                
+                <div class="atom-model">
+                    <div class="nucleus">
+                        Nucleu
+                        <div class="electron-shell" style="width: 200px; height: 200px;"></div>
+                        <div class="electron-shell" style="width: 300px; height: 300px;"></div>
+                        <div class="electron" style="top: 50px; left: 150px;"></div>
+                        <div class="electron" style="top: 150px; left: 50px;"></div>
+                        <div class="electron" style="top: 50px; left: 250px;"></div>
+                        <div class="electron" style="top: 250px; left: 50px;"></div>
+                    </div>
+                </div>
+                
+                <div class="interactive-exercise">
+                    <div class="exercise-title">
+                        <i class="fas fa-brain"></i>
+                        <h3>Exercițiu: Completează spațiile libere</h3>
+                    </div>
+                    <p class="question">3. Completează propozițiile de mai jos cu cuvintele potrivite:</p>
+                    <div style="margin: 20px 0;">
+                        <p>a) Nucleul atomului conține ________ și ________.</p>
+                        <input type="text" id="blank1" placeholder="Scrie răspunsul aici" style="width: 300px; padding: 8px; margin: 5px 0 15px 0; border: 2px solid #1a73e8; border-radius: 5px;">
+                        
+                        <p>b) Învelișul electronic conține ________ care se deplasează pe ________ energetice.</p>
+                        <input type="text" id="blank2" placeholder="Scrie răspunsul aici" style="width: 300px; padding: 8px; margin: 5px 0 15px 0; border: 2px solid #1a73e8; border-radius: 5px;">
+                        
+                        <p>c) Un atom este neutru din punct de vedere electric deoarece numărul de ________ este egal cu numărul de ________.</p>
+                        <input type="text" id="blank3" placeholder="Scrie răspunsul aici" style="width: 300px; padding: 8px; margin: 5px 0 15px 0; border: 2px solid #1a73e8; border-radius: 5px;">
+                    </div>
+                    <div class="feedback" id="fill-feedback"></div>
+                    <button class="button" id="check-fill">Verifică răspunsurile</button>
+                </div>
+            </section>
+            
+            <!-- Secțiunea Izotopi -->
+            <section id="isotopes" class="content-section">
+                <h2><i class="fas fa-balance-scale"></i> Izotopi</h2>
+                
+                <div class="definition-box">
+                    <p><strong>Izotopii</strong> sunt atomi ai aceluiași element chimic care au același număr atomic (Z) dar număr de masă (A) diferit.</p>
+                </div>
+                
+                <p>Înseamnă că izotopii unui element au:</p>
+                <ul>
+                    <li>Același număr de protoni (și electroni)</li>
+                    <li>Număr diferit de neutroni</li>
+                    <li>Aceleași proprietăți chimice (deoarece au același număr de electroni)</li>
+                    <li>Proprietăți fizice ușor diferite (în special masa)</li>
+                </ul>
+                
+                <h3>Exemple de izotopi</h3>
+                <ul>
+                    <li><strong>Hidrogen</strong> are trei izotopi: protiu (1 proton, 0 neutroni), deuteriu (1 proton, 1 neutron) și tritiu (1 proton, 2 neutroni)</li>
+                    <li><strong>Carbon</strong>: carbon-12 (6 protoni, 6 neutroni) și carbon-14 (6 protoni, 8 neutroni)</li>
+                    <li><strong>Oxigen</strong>: oxigen-16, oxigen-17, oxigen-18</li>
+                </ul>
+                
+                <div class="interactive-exercise">
+                    <div class="exercise-title">
+                        <i class="fas fa-question"></i>
+                        <h3>Exercițiu: Selectează afirmațiile corecte despre izotopi</h3>
+                    </div>
+                    <p class="question">4. Care dintre următoarele afirmații sunt adevărate pentru izotopii unui element?</p>
+                    <div class="options" id="isotope-options">
+                        <div class="option" data-correct="true">Au același număr de protoni</div>
+                        <div class="option" data-correct="false">Au același număr de neutroni</div>
+                        <div class="option" data-correct="true">Au proprietăți chimice identice</div>
+                        <div class="option" data-correct="false">Au proprietăți fizice identice</div>
+                        <div class="option" data-correct="true">Au același număr atomic (Z)</div>
+                        <div class="option" data-correct="true">Au număr de masă (A) diferit</div>
+                    </div>
+                    <div class="feedback" id="isotope-feedback"></div>
+                    <button class="button" id="check-isotope">Verifică răspunsurile</button>
+                </div>
+            </section>
+            
+            <!-- Secțiunea Masă atomică. Mol -->
+            <section id="mass" class="content-section">
+                <h2><i class="fas fa-weight-hanging"></i> Masă atomică. Mol de atomi</h2>
+                
+                <h3>Masa atomică</h3>
+                <p><strong>Masa atomică relativă (A<sub>r</sub>)</strong> este masa medie a atomilor unui element comparativ cu 1/12 din masa atomului de carbon-12.</p>
+                <p>Masa atomică absolută se măsoară în grame, dar valorile sunt extrem de mici (de ordinul 10<sup>-23</sup> g).</p>
+                
+                <h3>Molul</h3>
+                <div class="definition-box">
+                    <p><strong>Molul</strong> este cantitatea de substanță care conține un număr de particule (atomi, molecule, ioni) egal cu numărul de atomi din 12 g de carbon-12.</p>
+                </div>
+                
+                <p>Acest număr este <strong>numărul lui Avogadro (N<sub>A</sub>)</strong> și are valoarea:</p>
+                <p style="text-align: center; font-size: 1.2rem; font-weight: bold; color: #0d47a1;">N<sub>A</sub> = 6,022 × 10<sup>23</sup> particule/mol</p>
+                
+                <p><strong>Masa molară (M)</strong> este masa unui mol de substanță și se exprimă în g/mol.</p>
+                <p>Masa molară este numeric egală cu masa atomică relativă (pentru elemente) sau moleculară relativă (pentru compuși).</p>
+                
+                <div class="interactive-exercise">
+                    <div class="exercise-title">
+                        <i class="fas fa-calculator"></i>
+                        <h3>Exercițiu: Calculează numărul de atomi</h3>
+                    </div>
+                    <p class="question">5. Câți atomi sunt în 0,5 moli de fier (Fe)?</p>
+                    <div style="margin: 20px 0;">
+                        <p>Numărul lui Avogadro: N<sub>A</sub> = 6,022 × 10<sup>23</sup> atomi/mol</p>
+                        <p>Formula de calcul: N = n × N<sub>A</sub></p>
+                        <p>Unde: n = numărul de moli, N = numărul de atomi</p>
+                        
+                        <div style="margin: 15px 0;">
+                            <label for="answer-mol">Răspunsul tău (în notație științifică, ex: 3.011e23): </label>
+                            <input type="text" id="answer-mol" placeholder="ex: 3.011e23" style="width: 250px; padding: 8px; margin-left: 10px; border: 2px solid #1a73e8; border-radius: 5px;">
+                        </div>
+                    </div>
+                    <div class="feedback" id="mol-feedback"></div>
+                    <button class="button" id="check-mol">Verifică calculul</button>
+                    <button class="button show-solution" style="background-color: #6c757d; margin-left: 10px;">Vezi rezolvare</button>
+                </div>
+            </section>
+            
+            <!-- Secțiunea Tabelul periodic -->
+            <section id="periodic" class="content-section">
+                <h2><i class="fas fa-table"></i> Tabelul periodic al elementelor</h2>
+                
+                <p>Tabelul periodic al elementelor este o clasificare a elementelor chimice în funcție de proprietățile lor.</p>
+                
+                <h3>Organizarea tabelului periodic</h3>
+                <ul>
+                    <li><strong>Perioade</strong> (orizontal) - numărul cuantic principal (nivelul de energie)</li>
+                    <li><strong>Grupe</strong> (vertical) - numărul de electroni de valență</li>
+                    <li><strong>Blocuri</strong> (s, p, d, f) - tipul orbitalului în care se află ultimul electron</li>
+                </ul>
+                
+                <h3>Elemente reprezentative din tabelul periodic</h3>
+                <div class="periodic-table" id="periodic-table">
+                    <!-- Tabelul periodic va fi generat prin JavaScript -->
+                </div>
+                
+                <div class="interactive-exercise">
+                    <div class="exercise-title">
+                        <i class="fas fa-search"></i>
+                        <h3>Exercițiu: Identifică elementele</h3>
+                    </div>
+                    <p class="question">6. Identifică elementele din tabelul periodic de mai sus care aparțin următoarelor categorii:</p>
+                    <div style="margin: 20px 0;">
+                        <div style="display: flex; flex-wrap: wrap; gap: 15px;">
+                            <div style="flex: 1; min-width: 200px;">
+                                <p><strong>Metale alcaline</strong> (Grupa 1):</p>
+                                <input type="text" id="alkali-input" placeholder="ex: Na, K" style="width: 100%; padding: 8px; border: 2px solid #1a73e8; border-radius: 5px;">
+                            </div>
+                            <div style="flex: 1; min-width: 200px;">
+                                <p><strong>Halogeni</strong> (Grupa 17):</p>
+                                <input type="text" id="halogen-input" placeholder="ex: Cl, Br" style="width: 100%; padding: 8px; border: 2px solid #1a73e8; border-radius: 5px;">
+                            </div>
+                            <div style="flex: 1; min-width: 200px;">
+                                <p><strong>Gaze nobile</strong> (Grupa 18):</p>
+                                <input type="text" id="noble-input" placeholder="ex: He, Ne" style="width: 100%; padding: 8px; border: 2px solid #1a73e8; border-radius: 5px;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feedback" id="periodic-feedback"></div>
+                    <button class="button" id="check-periodic">Verifică răspunsurile</button>
+                </div>
+            </section>
+            
+            <!-- Secțiunea Relația structură-poziție -->
+            <section id="relationship" class="content-section">
+                <h2><i class="fas fa-project-diagram"></i> Relația dintre structura învelișului de electroni și poziția în tabelul periodic</h2>
+                
+                <p>Există o relație directă între structura electronică a atomilor și poziția elementelor în tabelul periodic.</p>
+                
+                <h3>Relații importante</h3>
+                <ul>
+                    <li><strong>Numărul de perioadă</strong> = numărul de straturi electronice (nivelul de energie)</li>
+                    <li><strong>Numărul de grupă</strong> (pentru elementele reprezentative) = numărul de electroni de valență</li>
+                    <li><strong>Configurația electronică</strong> determină poziția elementului în tabelul periodic</li>
+                </ul>
+                
+                <div class="definition-box">
+                    <p><strong>Electronii de valență</strong> sunt electronii din stratul electronic exterior (cel mai îndepărtat de nucleu) și sunt responsabili pentru proprietățile chimice ale elementului.</p>
+                </div>
+                
+                <h3>Exemple</h3>
+                <ul>
+                    <li><strong>Sodiu (Na)</strong> - se află în perioada 3 (are 3 straturi electronice) și grupa 1 (are 1 electron de valență)</li>
+                    <li><strong>Clor (Cl)</strong> - se află în perioada 3 (are 3 straturi electronice) și grupa 17 (are 7 electroni de valență)</li>
+                    <li><strong>Neon (Ne)</strong> - se află în perioada 2 (are 2 straturi electronice) și grupa 18 (are 8 electroni de valență)</li>
+                </ul>
+                
+                <div class="interactive-exercise">
+                    <div class="exercise-title">
+                        <i class="fas fa-puzzle-piece"></i>
+                        <h3>Exercițiu: Determină poziția din tabelul periodic</h3>
+                    </div>
+                    <p class="question">7. Un element chimic are următoarea configurație electronică: K 2e, L 8e, M 6e.</p>
+                    <p>În ce perioadă și grupă se află acest element în tabelul periodic?</p>
+                    <div style="margin: 20px 0;">
+                        <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                            <div>
+                                <p>Perioada:</p>
+                                <select id="period-select" style="padding: 8px; border: 2px solid #1a73e8; border-radius: 5px; min-width: 100px;">
+                                    <option value="">Alege perioada</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                </select>
+                            </div>
+                            <div>
+                                <p>Grupa:</p>
+                                <select id="group-select" style="padding: 8px; border: 2px solid #1a73e8; border-radius: 5px; min-width: 100px;">
+                                    <option value="">Alege grupa</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feedback" id="config-feedback"></div>
+                    <button class="button" id="check-config">Verifică răspunsul</button>
+                    <button class="button show-hint" style="background-color: #6c757d; margin-left: 10px;">Indiciu</button>
+                </div>
+            </section>
+            
+            <!-- Secțiunea Recapitulare -->
+            <section id="review" class="content-section">
+                <h2><i class="fas fa-book-open"></i> Recapitulare pentru evaluarea unității de învățare</h2>
+                
+                <p>Această secțiune îți permite să recapitulezi toate noțiunile învățate în unitatea de învățare "Atomul și tabelul periodic".</p>
+                
+                <h3>Noțiuni cheie de reținut</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; margin: 25px 0;">
+                    <div style="background-color: #f0f7ff; padding: 20px; border-radius: 10px;">
+                        <h4 style="color: #1a73e8;">Atomul</h4>
+                        <ul>
+                            <li>Cea mai mică particulă a unui element</li>
+                            <li>Format din nucleu și înveliș electronic</li>
+                            <li>Neutru electric (protoni = electroni)</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background-color: #f0f7ff; padding: 20px; border-radius: 10px;">
+                        <h4 style="color: #1a73e8;">Element chimic</h4>
+                        <ul>
+                            <li>Substanță simplă nedezcompusibilă</li>
+                            <li>Caracterizat prin Z (număr atomic)</li>
+                            <li>Reprezentat prin simbol chimic</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background-color: #f0f7ff; padding: 20px; border-radius: 10px;">
+                        <h4 style="color: #1a73e8;">Izotopi</h4>
+                        <ul>
+                            <li>Acelasi Z, diferit A</li>
+                            <li>Proprietăți chimice identice</li>
+                            <li>Proprietăți fizice diferite</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background-color: #f0f7ff; padding: 20px; border-radius: 10px;">
+                        <h4 style="color: #1a73e8;">Tabelul periodic</h4>
+                        <ul>
+                            <li>Perioade = straturi electronice</li>
+                            <li>Grupe = electroni de valență</li>
+                            <li>Organizare în metale, nemetale, metaloizi</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h3>Test de recapitulare rapidă</h3>
+                <div class="interactive-exercise">
+                    <div class="exercise-title">
+                        <i class="fas fa-clock"></i>
+                        <h3>Test rapid - 5 întrebări</h3>
+                    </div>
+                    
+                    <div id="quick-test">
+                        <div class="test-question" id="q1">
+                            <p class="question">1. Ce conține nucleul atomic?</p>
+                            <div class="options">
+                                <div class="option" data-correct="false">Doar protoni</div>
+                                <div class="option" data-correct="false">Doar neutroni</div>
+                                <div class="option" data-correct="true">Protoni și neutroni</div>
+                                <div class="option" data-correct="false">Electroni și protoni</div>
+                            </div>
+                        </div>
+                        
+                        <div class="test-question" id="q2" style="display: none;">
+                            <p class="question">2. Care este simbolul chimic pentru aur?</p>
+                            <div class="options">
+                                <div class="option" data-correct="false">Ag</div>
+                                <div class="option" data-correct="false">Au</div>
+                                <div class="option" data-correct="true">Au</div>
+                                <div class="option" data-correct="false">Fe</div>
+                            </div>
+                        </div>
+                        
+                        <div class="test-question" id="q3" style="display: none;">
+                            <p class="question">3. Ce este un mol?</p>
+                            <div class="options">
+                                <div class="option" data-correct="false">Un tip de atom</div>
+                                <div class="option" data-correct="false">O unitate de masă</div>
+                                <div class="option" data-correct="true">Cantitatea de substanță care conține 6,022×10²³ particule</div>
+                                <div class="option" data-correct="false">O grupare de elemente în tabelul periodic</div>
+                            </div>
+                        </div>
+                        
+                        <div class="test-question" id="q4" style="display: none;">
+                            <p class="question">4. Care dintre următoarele sunt gaze nobile?</p>
+                            <div class="options">
+                                <div class="option" data-correct="false">H, He, O</div>
+                                <div class="option" data-correct="true">He, Ne, Ar</div>
+                                <div class="option" data-correct="false">Na, K, Li</div>
+                                <div class="option" data-correct="false">F, Cl, Br</div>
+                            </div>
+                        </div>
+                        
+                        <div class="test-question" id="q5" style="display: none;">
+                            <p class="question">5. Câți electroni de valență are un element din grupa 16?</p>
+                            <div class="options">
+                                <div class="option" data-correct="false">2</div>
+                                <div class="option" data-correct="false">4</div>
+                                <div class="option" data-correct="true">6</div>
+                                <div class="option" data-correct="false">8</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="test-progress"></div>
+                    </div>
+                    
+                    <div class="score-display" id="test-score" style="display: none;"></div>
+                    
+                    <div class="feedback" id="test-feedback"></div>
+                    
+                    <button class="button" id="next-question" style="display: none;">Următoarea întrebare</button>
+                    <button class="button" id="check-test">Verifică răspunsul</button>
+                    <button class="button" id="restart-test" style="background-color: #6c757d; margin-left: 10px; display: none;">Reîncepe testul</button>
+                </div>
+            </section>
+            
+            <!-- Secțiunea Evaluare -->
+            <section id="evaluation" class="content-section">
+                <h2><i class="fas fa-clipboard-check"></i> Evaluarea unității de învățare</h2>
+                
+                <p>Această secțiune simulează o evaluare a unității de învățare. Vei răspunde la 10 întrebări și vei primi un scor la final.</p>
+                
+                <div class="interactive-exercise">
+                    <div class="exercise-title">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h3>Evaluare - Test sumativ</h3>
+                    </div>
+                    
+                    <div id="evaluation-test">
+                        <p><strong>Instrucțiuni:</strong></p>
+                        <ul>
+                            <li>Răspunde la toate cele 10 întrebări</li>
+                            <li>Poți trece la următoarea întrebare după ce ai răspuns la cea curentă</li>
+                            <li>La final vei primi un scor și feedback pe baza rezultatelor tale</li>
+                            <li>Timp estimat: 15-20 minute</li>
+                        </ul>
+                        
+                        <button class="button" id="start-evaluation" style="margin-top: 20px;">Începe evaluarea</button>
+                        
+                        <div id="evaluation-questions" style="display: none;">
+                            <!-- Întrebările vor fi generate prin JavaScript -->
+                        </div>
+                        
+                        <div class="progress-bar" id="eval-progress-bar" style="display: none;">
+                            <div class="progress-fill" id="eval-progress"></div>
+                        </div>
+                        
+                        <div id="eval-controls" style="display: none; margin-top: 20px;">
+                            <button class="button" id="prev-eval" style="background-color: #6c757d;">Întrebarea anterioară</button>
+                            <button class="button" id="next-eval">Următoarea întrebare</button>
+                            <button class="button" id="submit-eval" style="background-color: #28a745;">Finalizează evaluarea</button>
+                        </div>
+                        
+                        <div id="eval-results" style="display: none; margin-top: 30px;">
+                            <!-- Rezultatele vor fi afișate aici -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Secțiunea Activități remediale -->
+            <section id="remedial" class="content-section">
+                <h2><i class="fas fa-hands-helping"></i> Activități remediale sau de progres</h2>
+                
+                <p>Dacă ai întâmpinat dificultăți cu anumite noțiuni, această secțiune îți oferă resurse suplimentare pentru a le consolida.</p>
+                
+                <h3>Resurse pentru noțiuni dificile</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; margin: 25px 0;">
+                    <div style="background-color: #e8f0fe; padding: 20px; border-radius: 10px;">
+                        <h4 style="color: #1a73e8;"><i class="fas fa-video"></i> Video-lecții</h4>
+                        <p>Urmărește explicații vizuale despre:</p>
+                        <ul>
+                            <li>Structura atomului</li>
+                            <li>Tabelul periodic</li>
+                            <li>Izotopii și masa atomică</li>
+                        </ul>
+                        <button class="button download-worksheet" data-url="https://www.youtube.com/watch?v=_tB2aUZNNRI" style="margin-top: 10px; width: 100%;">
+                            <i class="fas fa-download"></i> Video-lecție
+                        </button>
+                    </div>
+                    
+                                       <div style="background-color: #e8f0fe; padding: 20px; border-radius: 10px;">
+                        <h4 style="color: #1a73e8;"><i class="fas fa-file-alt"></i> Fișe de lucru</h4>
+                        <p>Descarcă și rezolvă fișe de lucru pe:</p>
+                        <ul>
+                            <li>Configurația electronică</li>
+                            <li>Calculul masei atomice</li>
+                            <li>Relația structură-poziție în tabel</li>
+                        </ul>
+                        <button class="button download-worksheet" data-url="https://www.liveworksheets.com/node/595982/download-pdf" style="margin-top: 10px; width: 100%;">
+                            <i class="fas fa-download"></i> Descarcă fișa 1: Configurația electronică
+                        </button>
+                        
+                    </div>
+                    
+                    <div style="background-color: #e8f0fe; padding: 20px; border-radius: 10px;">
+                        <h4 style="color: #1a73e8;"><i class="fas fa-gamepad"></i> Jocuri educative</h4>
+                        <p>Întărește-ți cunoștințele prin jocuri:</p>
+                        <ul>
+                            <li>Asociază elementele cu simbolurile</li>
+                            <li>Completează tabelul periodic</li>
+                            <li>Quiz-uri interactive</li>
+                        </ul>
+                        <button class="button download-worksheet" data-url="https://learningapps.org/view16134159" style="margin-top: 10px; width: 100%;">
+                            <i class="fas fa-download"></i> Rezolvă rebusul
+                        </button>
+<button class="button download-worksheet" data-url="https://learningapps.org/view16135143" style="margin-top: 10px; width: 100%;">
+                            <i class="fas fa-download"></i> Câștigă cursa
+                        </button>
+                    </div>
+                </div>
+                
+                <h3>Recomandări personalizate</h3>
+                <div class="interactive-exercise">
+                    <div class="exercise-title">
+                        <i class="fas fa-user-graduate"></i>
+                        <h3>Test de autoevaluare pentru identificarea dificultăților</h3>
+                    </div>
+                    
+                    <p>Completează acest scurt test pentru a identifica ce noțiuni trebuie să recapitulezi:</p>
+                    
+                    <div style="margin: 20px 0;">
+                        <p><strong>1. Care dintre următoarele noțiuni ți se pare cea mai dificilă?</strong></p>
+                        <select id="difficult-concept" style="width: 100%; padding: 10px; border: 2px solid #1a73e8; border-radius: 5px; margin-top: 10px;">
+                            <option value="">Selectează o opțiune</option>
+                            <option value="atom">Structura atomului (nucleu, electroni)</option>
+                            <option value="isotopes">Izotopii și masa atomică relativă</option>
+                            <option value="mol">Molul și numărul lui Avogadro</option>
+                            <option value="periodic">Tabelul periodic și organizarea lui</option>
+                            <option value="relationship">Relația structură electronică - poziție în tabel</option>
+                        </select>
+                        
+                        <p style="margin-top: 20px;"><strong>2. Ce tip de resurse preferi pentru învățare?</strong></p>
+                        <select id="preferred-resources" style="width: 100%; padding: 10px; border: 2px solid #1a73e8; border-radius: 5px; margin-top: 10px;">
+                            <option value="">Selectează o opțiune</option>
+                            <option value="video">Video-lecții și animații</option>
+                            <option value="text">Explicații text și scheme</option>
+                            <option value="interactive">Exerciții interactive</option>
+                            <option value="practice">Probleme și exerciții de aplicare</option>
+                        </select>
+                    </div>
+                    
+                    <div class="feedback" id="remedial-feedback"></div>
+                    <button class="button" id="get-recommendations">Obține recomandări personalizate</button>
+                </div>
+            </section>
+        </main>
+        
+        <footer class="footer">
+            <p>Site educațional de Chimie Anorganică - Clasa a 7-a</p>
+            <p>© 2025 Pahonțu
+Conținutul acestui site este publicat sub licența Creative Commons Atribuire 4.0 Internațional (CC BY 4.0)</p>
+        </footer>
+    </div>
+
+    <script>
+        // Funcționalitate pentru navigarea între secțiuni
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Elimină clasa active de la toate linkurile
+                document.querySelectorAll('.nav-link').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Adaugă clasa active la linkul curent
+                this.classList.add('active');
+                
+                // Ascunde toate secțiunile
+                document.querySelectorAll('.content-section').forEach(section => {
+                    section.classList.remove('active');
+                });
+                
+                // Afișează secțiunea corespunzătoare
+                const targetId = this.getAttribute('data-target');
+                document.getElementById(targetId).classList.add('active');
+                
+                // Dacă e secțiunea cu tabelul periodic, generează tabelul
+                if (targetId === 'periodic') {
+                    generatePeriodicTable();
+                }
+            });
+        });
+
+                // Funcționalitate pentru exercițiul 1 (opțiuni simple)
+        document.querySelectorAll('.check-answer').forEach(button => {
+            button.addEventListener('click', function() {
+                const exercise = this.closest('.interactive-exercise');
+                const options = exercise.querySelectorAll('.option');
+                const feedback = exercise.querySelector('.feedback');
+                
+                let allCorrect = true;
+                let answeredCount = 0;
+                
+                // Verifică fiecare grup de opțiuni separat
+                const questionGroups = exercise.querySelectorAll('.question');
+                
+                // Pentru fiecare întrebare, verifică dacă a fost selectată o opțiune corectă
+                for (let i = 0; i < questionGroups.length; i++) {
+                    const questionDiv = questionGroups[i];
+                    const nextQuestion = questionGroups[i + 1];
+                    
+                    // Găsește toate opțiunile dintre această întrebare și următoarea
+                    let optionsForThisQuestion = [];
+                    let currentElement = questionDiv.nextElementSibling;
+                    
+                    while (currentElement && currentElement !== nextQuestion) {
+                        if (currentElement.classList && currentElement.classList.contains('options')) {
+                            const questionOptions = currentElement.querySelectorAll('.option');
+                            questionOptions.forEach(opt => optionsForThisQuestion.push(opt));
+                        }
+                        currentElement = currentElement.nextElementSibling;
+                    }
+                    
+                    // Verifică dacă pentru această întrebare a fost selectată o opțiune corectă
+                    let questionCorrect = false;
+                    let anySelected = false;
+                    
+                    optionsForThisQuestion.forEach(option => {
+                        if (option.classList.contains('selected')) {
+                            anySelected = true;
+                            if (option.getAttribute('data-correct') === 'true') {
+                                option.classList.add('correct');
+                                questionCorrect = true;
+                            } else {
+                                option.classList.add('incorrect');
+                            }
+                        }
+                    });
+                    
+                    if (anySelected && !questionCorrect) {
+                        allCorrect = false;
+                    }
+                    
+                    if (anySelected) {
+                        answeredCount++;
+                    }
+                }
+                
+                if (answeredCount === questionGroups.length && allCorrect) {
+                    feedback.textContent = 'Excelent! Ambele răspunsuri sunt corecte.';
+                    feedback.classList.remove('incorrect');
+                    feedback.classList.add('correct');
+                } else if (answeredCount === questionGroups.length) {
+                    feedback.textContent = 'Unele răspunsuri nu sunt corecte. Verifică explicația.';
+                    feedback.classList.remove('correct');
+                    feedback.classList.add('incorrect');
+                } else {
+                    feedback.textContent = 'Te rog răspunde la ambele întrebări înainte de a verifica.';
+                    feedback.classList.remove('correct');
+                    feedback.classList.add('incorrect');
+                }
+            });
+        });
+
+        // Adaugă event listeners pentru selecția opțiunilor
+        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', function() {
+                // Elimină selecția din toate opțiunile din același exercițiu
+                const options = this.parentElement.querySelectorAll('.option');
+                options.forEach(opt => {
+                    opt.classList.remove('selected');
+                    opt.classList.remove('correct', 'incorrect');
+                });
+                
+                // Selectează opțiunea curentă
+                this.classList.add('selected');
+                
+                // Ascunde feedback-ul anterior
+                const feedback = this.closest('.interactive-exercise').querySelector('.feedback');
+                feedback.style.display = 'none';
+                feedback.classList.remove('correct', 'incorrect');
+            });
+        });
+
+                // Funcționalitate pentru butoanele "Explicație"
+        document.querySelectorAll('.show-explanation').forEach(button => {
+            button.addEventListener('click', function() {
+                const exercise = this.closest('.interactive-exercise');
+                const feedback = exercise.querySelector('.feedback');
+                
+                feedback.innerHTML = `
+                    <h4>Explicații pentru ambele întrebări:</h4>
+                    
+                    <p><strong>Pentru întrebarea 1:</strong></p>
+                    <p>Atomul a fost considerat în trecut indivizibil (a = "nu", tomos = "tăiat" în greacă). 
+                    Astăzi știm că atomul este divizibil și format din particule elementare. 
+                    Definiția corectă a atomului este: cea mai mică particulă dintr-un element chimic care 
+                    păstrează proprietățile chimice ale elementului.</p>
+                    
+                    <p style="margin-top: 15px;"><strong>Pentru întrebarea 2:</strong></p>
+                    <p>Numărul atomic (Z) reprezintă numărul de protoni din nucleul atomului și determină 
+                    identitatea elementului chimic. De exemplu, toți atomii de hidrogen au Z=1 (un proton), 
+                    toți atomii de carbon au Z=6 (șase protoni). Numărul atomic se notează cu Z, nu cu A 
+                    (care reprezintă numărul de masă, adică suma dintre protoni și neutroni).</p>
+                `;
+                
+                feedback.classList.remove('incorrect');
+                feedback.classList.add('correct');
+                feedback.style.display = 'block';
+            });
+        });
+
+        // Funcționalitate pentru exercițiul de drag and drop (element chimic - simbol)
+        const draggables = document.querySelectorAll('.draggable');
+        const dropZones = document.querySelectorAll('.drop-zone');
+        
+        let draggedElement = null;
+        
+        draggables.forEach(draggable => {
+            draggable.addEventListener('dragstart', function(e) {
+                draggedElement = this;
+                setTimeout(() => {
+                    this.style.opacity = '0.4';
+                }, 0);
+            });
+            
+            draggable.addEventListener('dragend', function() {
+                setTimeout(() => {
+                    this.style.opacity = '1';
+                    draggedElement = null;
+                }, 0);
+            });
+        });
+        
+        dropZones.forEach(zone => {
+            zone.addEventListener('dragover', function(e) {
+                e.preventDefault();
+                this.style.backgroundColor = '#f0f7ff';
+            });
+            
+            zone.addEventListener('dragleave', function() {
+                this.style.backgroundColor = '';
+            });
+            
+            zone.addEventListener('drop', function(e) {
+                e.preventDefault();
+                this.style.backgroundColor = '';
+                
+                if (draggedElement) {
+                    // Elimină orice copie existentă în această zonă
+                    while (this.firstChild) {
+                        this.removeChild(this.firstChild);
+                    }
+                    
+                    // Creează o copie a elementului tras
+                    const clonedElement = draggedElement.cloneNode(true);
+                    clonedElement.style.opacity = '1';
+                    clonedElement.style.cursor = 'default';
+                    clonedElement.draggable = false;
+                    clonedElement.style.margin = '0';
+                    clonedElement.style.padding = '10px';
+                    clonedElement.style.textAlign = 'center';
+                    clonedElement.style.fontSize = '1.2rem';
+                    clonedElement.style.fontWeight = 'bold';
+                    
+                    this.appendChild(clonedElement);
+                }
+            });
+        });
+        
+        // Verificarea asocierilor corecte
+        document.getElementById('check-drag').addEventListener('click', function() {
+            const dropZones = document.querySelectorAll('.drop-zone');
+            let allCorrect = true;
+            let feedback = document.getElementById('drag-feedback');
+            
+            dropZones.forEach(zone => {
+                const correctSymbol = zone.getAttribute('data-element');
+                const droppedSymbol = zone.querySelector('.draggable');
+                
+                if (droppedSymbol && droppedSymbol.getAttribute('data-symbol') === correctSymbol) {
+                    zone.style.borderColor = '#28a745';
+                    zone.style.backgroundColor = '#d4edda';
+                } else {
+                    zone.style.borderColor = '#dc3545';
+                    zone.style.backgroundColor = '#f8d7da';
+                    allCorrect = false;
+                }
+            });
+            
+            if (allCorrect) {
+                feedback.textContent = 'Excelent! Toate asocierile sunt corecte. Hidrogen (H), Oxigen (O),Carbon (C), Aur (Au).';
+                feedback.classList.remove('incorrect');
+                feedback.classList.add('correct');
+            } else {
+                feedback.textContent = 'Unele asocieri nu sunt corecte. Verifică simbolurile: Hidrogen (H), Oxigen (O), Carbon (C), Aur (Au).';
+                feedback.classList.remove('correct');
+                feedback.classList.add('incorrect');
+            }
+        });
+        
+        // Resetarea exercițiului de drag and drop
+        document.getElementById('reset-drag').addEventListener('click', function() {
+            const dropZones = document.querySelectorAll('.drop-zone');
+            const feedback = document.getElementById('drag-feedback');
+            
+            dropZones.forEach(zone => {
+                zone.innerHTML = '';
+                zone.style.borderColor = '#ccc';
+                zone.style.backgroundColor = '';
+            });
+            
+            feedback.textContent = '';
+            feedback.classList.remove('correct', 'incorrect');
+        });
+
+        // Funcționalitate pentru exercițiul cu completarea spațiilor libere
+        document.getElementById('check-fill').addEventListener('click', function() {
+            const answer1 = document.getElementById('blank1').value.toLowerCase();
+            const answer2 = document.getElementById('blank2').value.toLowerCase();
+            const answer3 = document.getElementById('blank3').value.toLowerCase();
+            const feedback = document.getElementById('fill-feedback');
+            
+            const correct1 = answer1.includes('proton') && answer1.includes('neutron');
+            const correct2 = answer2.includes('electron') && answer2.includes('strat');
+            const correct3 = answer3.includes('proton') && answer3.includes('electron');
+            
+            if (correct1 && correct2 && correct3) {
+                feedback.textContent = 'Perfect! Răspunsurile sunt corecte: a) protoni și neutroni; b) electronii care se deplasează pe straturi energetice; c) protoni este egal cu numărul de electroni.';
+                feedback.classList.remove('incorrect');
+                feedback.classList.add('correct');
+            } else {
+                feedback.textContent = 'Unele răspunsuri nu sunt corecte. Verifică: a) protoni și neutroni; b) electronii care se deplasează pe straturi energetice; c) protoni este egal cu numărul de electroni.';
+                feedback.classList.remove('correct');
+                feedback.classList.add('incorrect');
+            }
+        });
+
+        //exercițiul cu izotopii (selecție multiplă)
+        document.getElementById('check-isotope').addEventListener('click', function() {
+            const options = document.querySelectorAll('#isotope-options .option');
+            const feedback = document.getElementById('isotope-feedback');
+            let correctCount = 0;
+            let selectedCount = 0;
+            let allCorrect = true;
+            
+            options.forEach(option => {
+                const isCorrect = option.getAttribute('data-correct') === 'true';
+                const isSelected = option.classList.contains('selected');
+                
+                if (isSelected) {
+                    selectedCount++;
+                    
+                    if (isCorrect) {
+                        option.classList.add('correct');
+                        correctCount++;
+                    } else {
+                        option.classList.add('incorrect');
+                        allCorrect = false;
+                    }
+                } else if (isCorrect) {
+                    // Dacă opțiunea corectă nu a fost selectată
+                    allCorrect = false;
+                }
+            });
+            
+            if (allCorrect && selectedCount === 4) {
+                feedback.textContent = 'Excelent! Toate răspunsurile sunt corecte. Izotopii au același număr de protoni (Z), același număr atomic, proprietăți chimice identice, dar număr de masă (A) diferit și proprietăți fizice ușor diferite.';
+                feedback.classList.remove('incorrect');
+                feedback.classList.add('correct');
+            } else {
+                feedback.textContent = 'Nu toate răspunsurile sunt corecte. Izotopii unui element au: același număr de protoni (Z), același număr atomic, proprietăți chimice identice, număr de masă (A) diferit (datorită numărului diferit de neutroni) și proprietăți fizice ușor diferite.';
+                feedback.classList.remove('correct');
+                feedback.classList.add('incorrect');
+            }
+        });
+
+        // Funcționalitate pentru exercițiul cu molul
+        document.getElementById('check-mol').addEventListener('click', function() {
+            const answer = document.getElementById('answer-mol').value.trim();
+            const feedback = document.getElementById('mol-feedback');
+            const correctAnswer = 3.011e23; // 0.5 * 6.022e23
+            
+            // Verifică dacă răspunsul este în intervalul corect
+            let userAnswer;
+            if (answer.includes('e')) {
+                userAnswer = parseFloat(answer);
+            } else {
+                userAnswer = parseFloat(answer);
+            }
+            
+            // Acceptăm o marjă de eroare de 1%
+            if (!isNaN(userAnswer) && Math.abs(userAnswer - correctAnswer) / correctAnswer < 0.01) {
+                feedback.textContent = `Corect! În 0,5 moli de fier sunt ${correctAnswer.toExponential(3)} atomi.`;
+                feedback.classList.remove('incorrect');
+                feedback.classList.add('correct');
+            } else {
+                feedback.textContent = `Nu este corect. Calcul corect: N = n × N_A = 0,5 mol × 6,022×10²³ atomi/mol = ${correctAnswer.toExponential(3)} atomi.`;
+                feedback.classList.remove('correct');
+                feedback.classList.add('incorrect');
+            }
+        });
+
+        // Buton pentru afișarea soluției exercițiului cu molul
+        document.querySelector('.show-solution').addEventListener('click', function() {
+            const feedback = document.getElementById('mol-feedback');
+            const correctAnswer = 3.011e23;
+            
+            feedback.textContent = `Rezolvare: 
+            Dat: n = 0,5 moli de Fe
+            N_A = 6,022 × 10²³ atomi/mol
+            Formula: N = n × N_A
+            Calcul: N = 0,5 × 6,022 × 10²³ = ${correctAnswer.toExponential(3)} atomi
+            Răspuns: În 0,5 moli de fier sunt ${correctAnswer.toExponential(3)} atomi.`;
+            feedback.classList.remove('incorrect');
+            feedback.classList.add('correct');
+        });
+
+        // Generare tabel periodic simplificat
+        function generatePeriodicTable() {
+            const periodicTable = document.getElementById('periodic-table');
+            if (!periodicTable) return;
+            
+            // Elemente pentru un tabel periodic simplificat (primele 36 de elemente + câteva importante)
+            const elements = [
+                { symbol: 'H', name: 'Hidrogen', number: 1, group: 1, period: 1, category: 'non-metal' },
+                { symbol: 'He', name: 'Heliu', number: 2, group: 18, period: 1, category: 'noble-gas' },
+                { symbol: 'Li', name: 'Litiu', number: 3, group: 1, period: 2, category: 'alkali-metal' },
+                { symbol: 'Be', name: 'Beriliu', number: 4, group: 2, period: 2, category: 'alkaline-earth' },
+                { symbol: 'B', name: 'Bor', number: 5, group: 13, period: 2, category: 'semi-metal' },
+                { symbol: 'C', name: 'Carbon', number: 6, group: 14, period: 2, category: 'non-metal' },
+                { symbol: 'N', name: 'Azot', number: 7, group: 15, period: 2, category: 'non-metal' },
+                { symbol: 'O', name: 'Oxigen', number: 8, group: 16, period: 2, category: 'non-metal' },
+                { symbol: 'F', name: 'Fluor', number: 9, group: 17, period: 2, category: 'halogen' },
+                { symbol: 'Ne', name: 'Neon', number: 10, group: 18, period: 2, category: 'noble-gas' },
+                { symbol: 'Na', name: 'Sodiu', number: 11, group: 1, period: 3, category: 'alkali-metal' },
+                { symbol: 'Mg', name: 'Magneziu', number: 12, group: 2, period: 3, category: 'alkaline-earth' },
+                { symbol: 'Al', name: 'Aluminiu', number: 13, group: 13, period: 3, category: 'basic-metal' },
+                { symbol: 'Si', name: 'Siliciu', number: 14, group: 14, period: 3, category: 'semi-metal' },
+                { symbol: 'P', name: 'Fosfor', number: 15, group: 15, period: 3, category: 'non-metal' },
+                { symbol: 'S', name: 'Sulf', number: 16, group: 16, period: 3, category: 'non-metal' },
+                { symbol: 'Cl', name: 'Clor', number: 17, group: 17, period: 3, category: 'halogen' },
+                { symbol: 'Ar', name: 'Argon', number: 18, group: 18, period: 3, category: 'noble-gas' },
+                { symbol: 'K', name: 'Potasiu', number: 19, group: 1, period: 4, category: 'alkali-metal' },
+                { symbol: 'Ca', name: 'Calciu', number: 20, group: 2, period: 4, category: 'alkaline-earth' },
+                { symbol: 'Fe', name: 'Fier', number: 26, group: 8, period: 4, category: 'transition-metal' },
+                { symbol: 'Cu', name: 'Cupru', number: 29, group: 11, period: 4, category: 'transition-metal' },
+                { symbol: 'Zn', name: 'Zinc', number: 30, group: 12, period: 4, category: 'transition-metal' },
+                { symbol: 'Br', name: 'Brom', number: 35, group: 17, period: 4, category: 'halogen' },
+                { symbol: 'Kr', name: 'Kripton', number: 36, group: 18, period: 4, category: 'noble-gas' },
+                { symbol: 'Ag', name: 'Argint', number: 47, group: 11, period: 5, category: 'transition-metal' },
+                { symbol: 'Au', name: 'Aur', number: 79, group: 11, period: 6, category: 'transition-metal' }
+            ];
+            
+            // Găsește numărul maxim de grupă pentru a dimensiona corect grid-ul
+            let maxGroup = 0;
+            elements.forEach(element => {
+                if (element.group > maxGroup) maxGroup = element.group;
+            });
+            
+            // Curăță tabelul existent
+            periodicTable.innerHTML = '';
+            
+            // Adaugă celule pentru fiecare grupă (1-18)
+            for (let group = 1; group <= 18; group++) {
+                const element = elements.find(el => el.group === group && el.period === 1);
+                
+                if (element) {
+                    const elementDiv = document.createElement('div');
+                    elementDiv.className = `element ${element.category}`;
+                    elementDiv.innerHTML = `
+                        <div class="element-symbol">${element.symbol}</div>
+                        <div class="element-number">${element.number}</div>
+                    `;
+                    elementDiv.title = `${element.name} (${element.symbol}) - Grupa ${element.group}, Perioada ${element.period}`;
+                    periodicTable.appendChild(elementDiv);
+                } else {
+                    // Celulă goală pentru grupele fără elemente în perioada 1
+                    const emptyDiv = document.createElement('div');
+                    emptyDiv.className = 'element';
+                    emptyDiv.style.visibility = 'hidden';
+                    periodicTable.appendChild(emptyDiv);
+                }
+            }
+            
+            // Adaugă elemente din perioada 2
+            for (let group = 1; group <= 18; group++) {
+                const element = elements.find(el => el.group === group && el.period === 2);
+                
+                if (element) {
+                    const elementDiv = document.createElement('div');
+                    elementDiv.className = `element ${element.category}`;
+                    elementDiv.innerHTML = `
+                        <div class="element-symbol">${element.symbol}</div>
+                        <div class="element-number">${element.number}</div>
+                    `;
+                    elementDiv.title = `${element.name} (${element.symbol}) - Grupa ${element.group}, Perioada ${element.period}`;
+                    periodicTable.appendChild(elementDiv);
+                } else if (group <= 2 || group >= 13) {
+                    // Celulă goală pentru grupele fără elemente în perioada 2 (doar pentru grupele reprezentative)
+                    const emptyDiv = document.createElement('div');
+                    emptyDiv.className = 'element';
+                    emptyDiv.style.visibility = 'hidden';
+                    periodicTable.appendChild(emptyDiv);
+                } else {
+                    // Pentru grupele 3-12 (metalele de tranziție), adaugă un placeholder
+                    const placeholderDiv = document.createElement('div');
+                    placeholderDiv.className = 'element';
+                    placeholderDiv.innerHTML = `<div style="font-size:0.7rem; color:#999;">Metale de tranziție</div>`;
+                    placeholderDiv.title = 'Metale de tranziție (grupele 3-12)';
+                    periodicTable.appendChild(placeholderDiv);
+                }
+            }
+            
+            // Adaugă elemente din perioada 3
+            for (let group = 1; group <= 18; group++) {
+                const element = elements.find(el => el.group === group && el.period === 3);
+                
+                if (element) {
+                    const elementDiv = document.createElement('div');
+                    elementDiv.className = `element ${element.category}`;
+                    elementDiv.innerHTML = `
+                        <div class="element-symbol">${element.symbol}</div>
+                        <div class="element-number">${element.number}</div>
+                    `;
+                    elementDiv.title = `${element.name} (${element.symbol}) - Grupa ${element.group}, Perioada ${element.period}`;
+                    periodicTable.appendChild(elementDiv);
+                } else if (group <= 2 || group >= 13) {
+                    // Celulă goală pentru grupele fără elemente în perioada 3 (doar pentru grupele reprezentative)
+                    const emptyDiv = document.createElement('div');
+                    emptyDiv.className = 'element';
+                    emptyDiv.style.visibility = 'hidden';
+                    periodicTable.appendChild(emptyDiv);
+                } else {
+                    // Pentru grupele 3-12 (metalele de tranziție), adaugă un placeholder
+                    const placeholderDiv = document.createElement('div');
+                    placeholderDiv.className = 'element';
+                    placeholderDiv.innerHTML = `<div style="font-size:0.7rem; color:#999;">Metale de tranziție</div>`;
+                    placeholderDiv.title = 'Metale de tranziție (grupele 3-12)';
+                    periodicTable.appendChild(placeholderDiv);
+                }
+            }
+        }
+
+        // Funcționalitate pentru exercițiul cu identificarea elementelor din tabel
+        document.getElementById('check-periodic').addEventListener('click', function() {
+            const alkaliInput = document.getElementById('alkali-input').value.trim().toLowerCase();
+            const halogenInput = document.getElementById('halogen-input').value.trim().toLowerCase();
+            const nobleInput = document.getElementById('noble-input').value.trim().toLowerCase();
+            const feedback = document.getElementById('periodic-feedback');
+            
+            // Verifică răspunsurile (acceptăm mai multe variante)
+            const alkaliCorrect = alkaliInput.includes('li') && alkaliInput.includes('na') && alkaliInput.includes('k');
+            const halogenCorrect = halogenInput.includes('f') && halogenInput.includes('cl') && halogenInput.includes('br');
+            const nobleCorrect = nobleInput.includes('he') && nobleInput.includes('ne') && nobleInput.includes('ar');
+            
+            if (alkaliCorrect && halogenCorrect && nobleCorrect) {
+                feedback.textContent = 'Excelent! Toate răspunsurile sunt corecte. Metalele alcaline: Li, Na, K; Halogeni: F, Cl, Br; Gaze nobile: He, Ne, Ar.';
+                feedback.classList.remove('incorrect');
+                feedback.classList.add('correct');
+            } else {
+                feedback.textContent = 'Nu toate răspunsurile sunt corecte. Verifică: Metalele alcaline (Grupa 1): Li, Na, K; Halogeni (Grupa 17): F, Cl, Br; Gaze nobile (Grupa 18): He, Ne, Ar.';
+                feedback.classList.remove('correct');
+                feedback.classList.add('incorrect');
+            }
+        });
+
+        // Funcționalitate pentru exercițiul cu configurația electronică
+        document.getElementById('check-config').addEventListener('click', function() {
+            const periodSelect = document.getElementById('period-select').value;
+            const groupSelect = document.getElementById('group-select').value;
+            const feedback = document.getElementById('config-feedback');
+            
+            if (periodSelect === '3' && groupSelect === '16') {
+                feedback.textContent = 'Corect! Configurația electronică corespunde sulfului (S), care se află în perioada 3 (are 3 straturi electronice) și grupa 16 (are 6 electroni de valență).';
+                feedback.classList.remove('incorrect');
+                feedback.classList.add('correct');
+            } else {
+                feedback.textContent = 'Nu este corect. Configurația electronică dată are electronul de valență în stratul M, deci elementul se află în perioada 3 și grupa 16. Elementul este sulful (S).';
+                feedback.classList.remove('correct');
+                feedback.classList.add('incorrect');
+            }
+        });
+
+        // Buton pentru indiciu la exercițiul cu configurația electronică
+        document.querySelector('.show-hint').addEventListener('click', function() {
+            const feedback = document.getElementById('config-feedback');
+            feedback.textContent = 'Indiciu: Numărați electronii din stratul cel mai exterior (n=3). Elementele cu 6 electroni de valență se află în grupa 16. Elementul se află în perioada 3.';
+            feedback.classList.remove('incorrect');
+            feedback.classList.add('correct');
+        });
+
+        // Funcționalitate pentru testul de recapitulare rapidă
+        let currentQuestion = 1;
+        let testScore = 0;
+        const totalQuestions = 5;
+        
+        document.getElementById('check-test').addEventListener('click', function() {
+            const currentQuestionDiv = document.getElementById(`q${currentQuestion}`);
+            const options = currentQuestionDiv.querySelectorAll('.option');
+            const feedback = document.getElementById('test-feedback');
+            let correctSelected = false;
+            
+            options.forEach(option => {
+                if (option.classList.contains('selected')) {
+                    if (option.getAttribute('data-correct') === 'true') {
+                        option.classList.add('correct');
+                        correctSelected = true;
+                        testScore++;
+                    } else {
+                        option.classList.add('incorrect');
+                    }
+                }
+            });
+            
+            if (correctSelected) {
+                feedback.textContent = 'Răspuns corect!';
+                feedback.classList.remove('incorrect');
+                feedback.classList.add('correct');
+            } else {
+                feedback.textContent = 'Răspuns incorect.';
+                feedback.classList.remove('correct');
+                feedback.classList.add('incorrect');
+            }
+            
+            // Actualizează bara de progres
+            const progressPercent = (currentQuestion / totalQuestions) * 100;
+            document.getElementById('test-progress').style.width = `${progressPercent}%`;
+            
+            // Arată butonul pentru următoarea întrebare
+            document.getElementById('next-question').style.display = 'inline-block';
+            document.getElementById('check-test').style.display = 'none';
+        });
+        
+        document.getElementById('next-question').addEventListener('click', function() {
+            // Ascunde întrebarea curentă
+            document.getElementById(`q${currentQuestion}`).style.display = 'none';
+            
+            // Trece la următoarea întrebare
+            currentQuestion++;
+            
+            if (currentQuestion <= totalQuestions) {
+                // Arată următoarea întrebare
+                document.getElementById(`q${currentQuestion}`).style.display = 'block';
+                
+                // Ascunde feedback-ul anterior
+                const feedback = document.getElementById('test-feedback');
+                feedback.textContent = '';
+                feedback.classList.remove('correct', 'incorrect');
+                
+                // Actualizează bara de progres
+                const progressPercent = (currentQuestion / totalQuestions) * 100;
+                document.getElementById('test-progress').style.width = `${progressPercent}%`;
+                
+                // Ascunde butonul pentru următoarea întrebare și arată butonul de verificare
+                this.style.display = 'none';
+                document.getElementById('check-test').style.display = 'inline-block';
+            } else {
+                // Testul s-a terminat, afișează scorul
+                this.style.display = 'none';
+                document.getElementById('restart-test').style.display = 'inline-block';
+                
+                const scoreDisplay = document.getElementById('test-score');
+                scoreDisplay.textContent = `Test terminat! Scorul tău: ${testScore} din ${totalQuestions} (${Math.round(testScore/totalQuestions*100)}%)`;
+                scoreDisplay.style.display = 'block';
+                
+                const feedback = document.getElementById('test-feedback');
+                if (testScore >= 4) {
+                    feedback.textContent = 'Excelent! Ai o bună înțelegere a noțiunilor cheie.';
+                    feedback.classList.remove('incorrect');
+                    feedback.classList.add('correct');
+                } else if (testScore >= 3) {
+                    feedback.textContent = 'Bine! Ai înțeles majoritatea noțiunilor, dar mai sunt aspecte de consolidat.';
+                    feedback.classList.remove('incorrect');
+                    feedback.classList.add('correct');
+                } else {
+                    feedback.textContent = 'Mai trebuie să recapitulezi noțiunile de bază. Reia secțiunile cu care ai avut dificultăți.';
+                    feedback.classList.remove('correct');
+                    feedback.classList.add('incorrect');
+                }
+            }
+        });
+        
+        document.getElementById('restart-test').addEventListener('click', function() {
+            // Resetează testul
+            currentQuestion = 1;
+            testScore = 0;
+            
+            // Ascunde toate întrebările și arată prima
+            for (let i = 1; i <= totalQuestions; i++) {
+                const questionDiv = document.getElementById(`q${i}`);
+                questionDiv.style.display = i === 1 ? 'block' : 'none';
+                
+                // Resetează opțiunile
+                const options = questionDiv.querySelectorAll('.option');
+                options.forEach(option => {
+                    option.classList.remove('selected', 'correct', 'incorrect');
+                });
+            }
+            
+            // Resetează feedback-ul și scorul
+            document.getElementById('test-feedback').textContent = '';
+            document.getElementById('test-feedback').classList.remove('correct', 'incorrect');
+            document.getElementById('test-score').textContent = '';
+            document.getElementById('test-score').style.display = 'none';
+            
+            // Resetează bara de progres
+            document.getElementById('test-progress').style.width = '0%';
+            
+            // Arată/ascunde butoanele corespunzător
+            document.getElementById('check-test').style.display = 'inline-block';
+            document.getElementById('next-question').style.display = 'none';
+            this.style.display = 'none';
+        });
+
+        // Funcționalitate pentru evaluarea sumativă
+        const evaluationQuestions = [
+            {
+                question: "Ce reprezintă numărul atomic Z al unui element?",
+                options: [
+                    "Numărul de neutroni din nucleu",
+                    "Numărul de protoni din nucleu",
+                    "Numărul total de nucleoni",
+                    "Numărul de electroni din înveliș"
+                ],
+                correct: 1
+            },
+            {
+                question: "Care dintre următoarele particule se găsesc în nucleul atomic?",
+                options: [
+                    "Doar protoni",
+                    "Doar neutroni",
+                    "Protoni și neutroni",
+                    "Electroni și protoni"
+                ],
+                correct: 2
+            },
+            {
+                question: "Ce sunt izotopii?",
+                options: [
+                    "Atomi cu același număr de masă dar număr atomic diferit",
+                    "Atomi ai aceluiași element cu număr de neutroni diferit",
+                    "Atomi ai elementelor diferite cu proprietăți similare",
+                    "Atomi cu același număr de electroni dar număr de protoni diferit"
+                ],
+                correct: 1
+            },
+            {
+                question: "Care este valoarea numărului lui Avogadro?",
+                options: [
+                    "6,022 × 10²²",
+                    "6,022 × 10²³",
+                    "6,022 × 10²⁴",
+                    "6,022 × 10²⁵"
+                ],
+                correct: 1
+            },
+            {
+                question: "În ce perioadă se află un element care are 4 straturi electronice?",
+                options: ["Perioada 1", "Perioada 2", "Perioada 3", "Perioada 4"],
+                correct: 3
+            },
+            {
+                question: "Câți electroni de valență are oxigenul (număr atomic 8)?",
+                options: ["2", "4", "6", "8"],
+                correct: 2
+            },
+            {
+                question: "Care dintre următoarele elemente este metal alcalin?",
+                options: ["Mg", "Na", "Al", "Si"],
+                correct: 1
+            },
+            {
+                question: "Care dintre următoarele elemente este gaz nobil?",
+                options: ["Cl", "Ar", "S", "P"],
+                correct: 1
+            },
+            {
+                question: "Ce reprezintă masa atomică relativă?",
+                options: [
+                    "Masa reală a unui atom exprimată în grame",
+                    "Masa unui mol de atomi",
+                    "Masa medie a atomilor unui element comparativ cu 1/12 din masa atomului de carbon-12",
+                    "Masa nucleului atomic"
+                ],
+                correct: 2
+            },
+            {
+                question: "Care este relația dintre structura electronică și poziția în tabelul periodic?",
+                options: [
+                    "Numărul de perioadă = numărul de electroni de valență",
+                    "Numărul de grupă = numărul de straturi electronice",
+                    "Numărul de perioadă = numărul de straturi electronice",
+                    "Nu există nicio relație"
+                ],
+                correct: 2
+            }
+        ];
+        
+        let currentEvalQuestion = 0;
+        let evalAnswers = new Array(evaluationQuestions.length).fill(null);
+        let evalStarted = false;
+        
+        document.getElementById('start-evaluation').addEventListener('click', function() {
+            evalStarted = true;
+            document.getElementById('evaluation-questions').style.display = 'block';
+            document.getElementById('eval-progress-bar').style.display = 'block';
+            document.getElementById('eval-controls').style.display = 'flex';
+            this.style.display = 'none';
+            
+            showEvalQuestion(currentEvalQuestion);
+        });
+        
+        function showEvalQuestion(index) {
+            const questionContainer = document.getElementById('evaluation-questions');
+            const question = evaluationQuestions[index];
+            
+            questionContainer.innerHTML = `
+                <div class="question" style="font-size: 1.2rem; font-weight: bold; margin-bottom: 20px;">Întrebarea ${index + 1}: ${question.question}</div>
+                <div class="options">
+                    ${question.options.map((option, i) => `
+                        <div class="option eval-option" data-index="${i}" style="margin-bottom: 10px;">
+                            ${String.fromCharCode(65 + i)}) ${option}
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+            
+            // Marchează opțiunea selectată anterior (dacă există)
+            if (evalAnswers[index] !== null) {
+                const options = questionContainer.querySelectorAll('.eval-option');
+                options[evalAnswers[index]].classList.add('selected');
+            }
+            
+            // Actualizează bara de progres
+            const progressPercent = ((index + 1) / evaluationQuestions.length) * 100;
+            document.getElementById('eval-progress').style.width = `${progressPercent}%`;
+            
+            // Actualizează starea butoanelor
+            document.getElementById('prev-eval').disabled = index === 0;
+            document.getElementById('next-eval').style.display = index < evaluationQuestions.length - 1 ? 'inline-block' : 'none';
+            document.getElementById('submit-eval').style.display = index === evaluationQuestions.length - 1 ? 'inline-block' : 'none';
+            
+            // Adaugă event listeners pentru opțiuni
+            document.querySelectorAll('.eval-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    // Elimină selecția din toate opțiunile
+                    document.querySelectorAll('.eval-option').forEach(opt => {
+                        opt.classList.remove('selected');
+                    });
+                    
+                    // Selectează opțiunea curentă
+                    this.classList.add('selected');
+                    
+                    // Salvează răspunsul
+                    evalAnswers[currentEvalQuestion] = parseInt(this.getAttribute('data-index'));
+                });
+            });
+        }
+        
+        document.getElementById('prev-eval').addEventListener('click', function() {
+            if (currentEvalQuestion > 0) {
+                currentEvalQuestion--;
+                showEvalQuestion(currentEvalQuestion);
+            }
+        });
+        
+        document.getElementById('next-eval').addEventListener('click', function() {
+            if (currentEvalQuestion < evaluationQuestions.length - 1) {
+                currentEvalQuestion++;
+                showEvalQuestion(currentEvalQuestion);
+            }
+        });
+        
+        document.getElementById('submit-eval').addEventListener('click', function() {
+            // Calculează scorul
+            let score = 0;
+            for (let i = 0; i < evaluationQuestions.length; i++) {
+                if (evalAnswers[i] === evaluationQuestions[i].correct) {
+                    score++;
+                }
+            }
+            
+            // Afișează rezultatele
+            const resultsContainer = document.getElementById('eval-results');
+            resultsContainer.style.display = 'block';
+            resultsContainer.innerHTML = `
+                <h3 style="color: #0d47a1;">Rezultatele evaluării</h3>
+                <div style="background-color: #e8f0fe; padding: 20px; border-radius: 10px; margin: 20px 0;">
+                    <p style="font-size: 1.3rem; font-weight: bold; text-align: center;">
+                        Scor: ${score} / ${evaluationQuestions.length} (${Math.round(score/evaluationQuestions.length*100)}%)
+                    </p>
+                    <p style="text-align: center; margin-top: 10px;">
+                        ${score >= 8 ? 'Excelent! Ai o bună înțelegere a noțiunilor.' : 
+                          score >= 6 ? 'Bine! Ai înțeles majoritatea noțiunilor.' : 
+                          'Mai trebuie să recapitulezi noțiunile. Utilizează secțiunea de activități remediale.'}
+                    </p>
+                </div>
+                
+                <h4>Feedback pe întrebări:</h4>
+                ${evaluationQuestions.map((q, i) => {
+                    const isCorrect = evalAnswers[i] === q.correct;
+                    const userAnswer = evalAnswers[i] !== null ? q.options[evalAnswers[i]] : 'Nu ai răspuns';
+                    const correctAnswer = q.options[q.correct];
+                    
+                    return `
+                        <div style="margin: 15px 0; padding: 15px; border-left: 5px solid ${isCorrect ? '#28a745' : '#dc3545'}; background-color: ${isCorrect ? '#d4edda' : '#f8d7da'};">
+                            <p><strong>Întrebarea ${i+1}:</strong> ${q.question}</p>
+                            <p><strong>Răspunsul tău:</strong> ${userAnswer} ${isCorrect ? '✓' : '✗'}</p>
+                            ${!isCorrect ? `<p><strong>Răspunsul corect:</strong> ${correctAnswer}</p>` : ''}
+                        </div>
+                    `;
+                }).join('')}
+                
+                <div style="text-align: center; margin-top: 20px;">
+                    <button class="button" id="retake-eval" style="background-color: #1a73e8;">Refă evaluarea</button>
+                    <button class="button" id="go-to-remedial" style="background-color: #6c757d; margin-left: 10px;">Mergi la activități remediale</button>
+                </div>
+            `;
+            
+            // Ascunde întrebările și controalele
+            document.getElementById('evaluation-questions').style.display = 'none';
+            document.getElementById('eval-controls').style.display = 'none';
+            document.getElementById('eval-progress-bar').style.display = 'none';
+            
+            // Adaugă event listeners pentru butoanele din rezultate
+            document.getElementById('retake-eval').addEventListener('click', function() {
+                // Resetează evaluarea
+                currentEvalQuestion = 0;
+                evalAnswers = new Array(evaluationQuestions.length).fill(null);
+                
+                // Ascunde rezultatele și arată din nou începutul evaluării
+                document.getElementById('eval-results').style.display = 'none';
+                document.getElementById('start-evaluation').style.display = 'inline-block';
+                document.getElementById('start-evaluation').click();
+            });
+            
+            document.getElementById('go-to-remedial').addEventListener('click', function() {
+                // Navighează la secțiunea cu activități remediale
+                document.querySelectorAll('.nav-link').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                document.querySelectorAll('.content-section').forEach(section => {
+                    section.classList.remove('active');
+                });
+                
+                document.querySelector('[data-target="remedial"]').classList.add('active');
+                document.getElementById('remedial').classList.add('active');
+            });
+        });
+
+        // Funcționalitate pentru activitățile remediale
+        document.getElementById('get-recommendations').addEventListener('click', function() {
+            const difficultConcept = document.getElementById('difficult-concept').value;
+            const preferredResources = document.getElementById('preferred-resources').value;
+            const feedback = document.getElementById('remedial-feedback');
+            
+            if (!difficultConcept || !preferredResources) {
+                feedback.textContent = 'Te rog completează ambele câmpuri pentru a primi recomandări personalizate.';
+                feedback.classList.remove('correct');
+                feedback.classList.add('incorrect');
+                return;
+            }
+            
+            const conceptNames = {
+                'atom': 'Structura atomului',
+                'isotopes': 'Izotopii și masa atomică relativă',
+                'mol': 'Molul și numărul lui Avogadro',
+                'periodic': 'Tabelul periodic și organizarea lui',
+                'relationship': 'Relația structură electronică - poziție în tabel'
+            };
+            
+            const resourceNames = {
+                'video': 'video-lecții și animații',
+                'text': 'explicații text și scheme',
+                'interactive': 'exerciții interactive',
+                'practice': 'probleme și exerciții de aplicare'
+            };
+            
+            feedback.innerHTML = `
+                <h4>Recomandări personalizate pentru tine:</h4>
+                <p>Pe baza răspunsurilor tale, îți recomandăm să te concentrezi pe <strong>${conceptNames[difficultConcept]}</strong> utilizând <strong>${resourceNames[preferredResources]}</strong>.</p>
+                
+                <ul>
+                    <li>Reia secțiunea corespunzătoare din acest site: <strong>"${conceptNames[difficultConcept]}"</strong></li>
+                    <li>Completează toate exercițiile interactive din acea secțiune</li>
+                    <li>Dacă preferi ${resourceNames[preferredResources]}, accesează resursele suplimentare din această pagină</li>
+                    <li>Refă testul de recapitulare după ce ai parcurs materialul</li>
+                </ul>
+                
+                <p style="margin-top: 15px; font-style: italic;">Succes în continuare!</p>
+            `;
+            feedback.classList.remove('incorrect');
+            feedback.classList.add('correct');
+        });
+        // Funcționalitate pentru descărcarea fișelor de lucru
+        document.querySelectorAll('.download-worksheet').forEach(button => {
+            button.addEventListener('click', function() {
+                const pdfUrl = this.getAttribute('data-url');
+                const fileName = this.textContent.trim().replace(/Descarcă fișa \d+: /, '') + '.pdf';
+                
+                // Creăm un link temporar pentru descărcare
+                const downloadLink = document.createElement('a');
+                downloadLink.href = pdfUrl;
+                downloadLink.download = fileName;
+                downloadLink.target = '_blank';
+                
+                // Simulăm click-ul pe link
+                document.body.appendChild(downloadLink);
+                downloadLink.click();
+                document.body.removeChild(downloadLink);
+                
+                // Afișăm un mesaj de confirmare
+                const exerciseDiv = this.closest('.interactive-exercise') || this.parentElement;
+                let feedbackDiv = exerciseDiv.querySelector('.download-feedback');
+                
+                if (!feedbackDiv) {
+                    feedbackDiv = document.createElement('div');
+                    feedbackDiv.className = 'feedback correct download-feedback';
+                    this.parentElement.appendChild(feedbackDiv);
+                }
+                
+                feedbackDiv.innerHTML = `<i class="fas fa-check-circle"></i> Fișa "${fileName}" a început descărcarea. Verifică folderul de descărcări!`;
+                feedbackDiv.style.display = 'block';
+                
+                // Ascundem mesajul după 5 secunde
+                setTimeout(() => {
+                    feedbackDiv.style.display = 'none';
+                }, 5000);
+            });
+        });
+        // Inițializare la încărcarea paginii
+        document.addEventListener('DOMContentLoaded', function() {
+            // Setează event listeners pentru toate opțiunile interactive
+            document.querySelectorAll('.option').forEach(option => {
+                option.addEventListener('click', function() {
+                    // Elimină selecția din toate opțiunile din același exercițiu
+                    const options = this.parentElement.querySelectorAll('.option');
+                    options.forEach(opt => {
+                        opt.classList.remove('selected');
+                        opt.classList.remove('correct', 'incorrect');
+                    });
+                    
+                    // Selectează opțiunea curentă
+                    this.classList.add('selected');
+                    
+                    // Ascunde feedback-ul anterior
+                    const feedback = this.closest('.interactive-exercise').querySelector('.feedback');
+                    feedback.style.display = 'none';
+                    feedback.classList.remove('correct', 'incorrect');
+                });
+            });
+            
+            // Generează tabelul periodic dacă secțiunea este activă
+            if (document.getElementById('periodic').classList.contains('active')) {
+                generatePeriodicTable();
+            }
+        });
+    </script>
+</body>
+</html>
